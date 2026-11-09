@@ -10,6 +10,9 @@ jobs:
   test:
     name: Test & Coverage
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: standarisasi-coding
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -19,26 +22,22 @@ jobs:
         with:
           node-version: '20'
           cache: 'npm'
+          cache-dependency-path: standarisasi-coding/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        working-directory: standarisasi-coding
 
       - name: Run linter
         run: npm run lint
-        working-directory: standarisasi-coding
 
       - name: Check formatting
         run: npm run format:check
-        working-directory: standarisasi-coding
 
       - name: Run tests with coverage
         run: npm test -- --coverage --ci
-        working-directory: standarisasi-coding
 
       - name: Enforce coverage threshold
         run: npm run coverage:check
-        working-directory: standarisasi-coding
 
       - name: Upload coverage artifact
         if: always()
