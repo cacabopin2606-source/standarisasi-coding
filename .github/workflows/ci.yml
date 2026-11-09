@@ -22,28 +22,23 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./standarisasi-coding  # <-- Masuk ke folder project
 
       - name: Run linter
         run: npm run lint
-        working-directory: ./standarisasi-coding  # <-- Masuk ke folder project
 
       - name: Check formatting
         run: npm run format:check
-        working-directory: ./standarisasi-coding  # <-- Masuk ke folder project
 
       - name: Run tests with coverage
         run: npm test -- --coverage --ci
-        working-directory: ./standarisasi-coding  # <-- Masuk ke folder project
 
       - name: Enforce coverage threshold
         run: npm run coverage:check
-        working-directory: ./standarisasi-coding  # <-- Masuk ke folder project
 
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: standarisasi-coding/coverage/       # <-- Sesuaikan path artifact-nya juga
+          path: coverage/
           retention-days: 7
