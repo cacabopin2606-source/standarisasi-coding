@@ -1,0 +1,18 @@
+# Analisis Kasus: Tim dengan 15 Developer
+## 1. Identifikasi Masalah
+Berdasarkan skenario:
+- 15 developer, semua commit langsung ke `main`
+- Tidak ada CI/CD
+- Test coverage 25%
+- Bug production setiap minggu
+### Masalah Utama:
+| # | Masalah | Dampak |
+|---|---------|--------|
+| 1 | Tidak ada branch strategy | Konflik merge, main sering rusak |
+| 2 | Tidak ada code review | Kode berkualitas rendah masuk |
+| 3 | Tidak ada CI/CD | Bug tidak terdeteksi sebelum production |
+| 4 | Coverage 25% | Regresi tidak terdeteksi |
+| 5 | Tidak ada quality gate | Tidak ada standar minimum kualitas |
+### Akar Masalah:
+**Kurangnya standarisasi proses integrasi kode** — semua developer bekerja
+tanpa kontrak yang jelas tentang bagaimana kode diintegrasikan.
