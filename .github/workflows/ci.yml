@@ -22,28 +22,23 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./standarisasi-coding  # <-- Wajib ada karena foldernya bersarang
 
       - name: Run linter
         run: npm run lint
-        working-directory: ./standarisasi-coding  # <-- Agar ESLint mendeteksi .eslintrc.json
 
       - name: Check formatting
         run: npm run format:check
-        working-directory: ./standarisasi-coding
 
       - name: Run tests with coverage
         run: npm test -- --coverage --ci
-        working-directory: ./standarisasi-coding
 
       - name: Enforce coverage threshold
         run: npm run coverage:check
-        working-directory: ./standarisasi-coding
 
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: standarisasi-coding/coverage/       # <-- Path artifact disesuaikan ke subfolder
+          path: coverage/
           retention-days: 7
