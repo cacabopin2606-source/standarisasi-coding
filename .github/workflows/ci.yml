@@ -10,12 +10,6 @@ jobs:
   test:
     name: Test & Coverage
     runs-on: ubuntu-latest
-    
-    # KUNCI UTAMA: Beritahu GitHub Actions untuk masuk ke subfolder ini secara otomatis
-    defaults:
-      run:
-        working-directory: ./standarisasi-coding
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -46,5 +40,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: standarisasi-coding/coverage/
+          path: coverage/
           retention-days: 7
