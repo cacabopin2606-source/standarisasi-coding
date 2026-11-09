@@ -22,10 +22,3 @@ tests/     -> unit test[cite: 35]
 .github/   -> CI workflow[cite: 35]
 AuthorNama: Nadia Laela Anabella Kurnia   NIM: E41250932   
 ---
-
-Setelah kamu *paste* kode bersih di atas ke `README.md`, simpan filenya (`Cmd + S`), lalu jalankan perintah ini di terminal VS Code untuk memperbarui repository-nya:
-
-```bash
-git add README.md
-git commit -m "docs: clean up README.md formatting"
-git push
