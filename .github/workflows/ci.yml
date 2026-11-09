@@ -18,31 +18,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
         run: npm ci
-        working-directory: ./standarisasi-coding
 
       - name: Run linter
         run: npm run lint
-        working-directory: ./standarisasi-coding
 
       - name: Check formatting
         run: npm run format:check
-        working-directory: ./standarisasi-coding
 
       - name: Run tests with coverage
         run: npm test -- --coverage --ci
-        working-directory: ./standarisasi-coding
 
       - name: Enforce coverage threshold
         run: npm run coverage:check
-        working-directory: ./standarisasi-coding
 
       - name: Upload coverage artifact
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: coverage-report
-          path: standarisasi-coding/coverage/
+          path: coverage/
           retention-days: 7
